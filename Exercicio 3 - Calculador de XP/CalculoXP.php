@@ -30,8 +30,8 @@
 
 <?php
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $nivel = (int)$_POST['nivel'];
-        $xpAcumulado = (int)$_POST['xpAtual'];
+        $nivel = $_POST['nivel'];
+        $xpAcumulado = $_POST['xpAtual'];
         $dificuldade = $_POST['dificuldade'];
 
         $xpBase = 100;
@@ -42,7 +42,7 @@
             $xpGanho = $xpBase * 2.0;
         } else {
             $xpGanho = $xpBase;
-        }
+        
         $novoXP = $xpAcumulado + $xpGanho;
 
         echo "XP Ganho: " . $xpGanho . "<br>";
@@ -51,6 +51,7 @@
         if ($novoXP > 1000) {
             $novoNivel = $nivel + 1;
             echo "PARABÉNS! Você subiu para o nível " . $novoNivel . "!";
+        }
         }
     }
 ?>
